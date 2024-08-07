@@ -55,7 +55,6 @@ public final class Constantes {
 	public static final String OM_PAY_MERCH_CODE = "OM_PAY_MERCH_CODE";
 	public static final String CODE_OM_API = "36381";
 	public static final String CODE_PAY_OM_BBS = BEConstantes.CODE_BBS;
-	public static final String CODE_PAY_OM_ROBOT = BEConstantes.CODE_ROBOT_SIM;
 	
 	public static final String SEND_OPERATION = "/api/gateway/operations/v1/sendOperation";
 	public static final String UPDATE_OPERATION = "/api/common/v1/updateTransactionStatus";

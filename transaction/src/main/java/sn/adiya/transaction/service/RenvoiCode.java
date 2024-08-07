@@ -52,10 +52,7 @@ public class RenvoiCode {
 			utilVue.CommonObject(null, TAG, ErrorResponse.SYNTAXE_ERRORS_1709.getCode(), ErrorResponse.SYNTAXE_ERRORS_1709.getMessage("transaction"), transaction);
 
 			String reseaux = "";
-			if(transaction.getPartnerPayer().getCode() != null && transaction.getPartnerPayer().getCode().equals(BEConstantes.CODE_QUICK_CASH)){
-				String messageFrom = "Bonjour, Vous avez recu un transfert de "+transaction.getSenderFirstName()+" "+transaction.getSenderLastName()+" de "+transaction.getPayoutAmount()+" "+transaction.getPayoutCurrency()+", Code "+utilVue.apgDeCrypt(transaction.getOperationId())+". RDV dans une agence QuickCash ou appelez 06715197";
-				utilVue.sendSMS("APGSA", transaction.getToCountry().getCountryIndicatif(),transaction.getBeneficiaryMobileNumber(), messageFrom);  
-			}else if(transaction.getPartnerPayer().getCode() != null && transaction.getPartnerPayer().getCode().equals(BEConstantes.CODE_OPTIMA_PROVIDER)){
+			if(transaction.getPartnerPayer().getCode() != null && transaction.getPartnerPayer().getCode().equals(BEConstantes.CODE_OPTIMA_PROVIDER)){
 				notifySMS(transaction);			
 			}else{
 				String messageTo="Bonjour, vous avez recu un transfert de "+transaction.getPayoutAmount()+" "+transaction.getPayoutCurrency()+" de "+transaction.getSenderFirstName()+" "+transaction.getSenderLastName()+" Code de retrait "+utilVue.getCodeCustomer(utilVue.apgDeCrypt(transaction.getOperationId()))+reseaux;

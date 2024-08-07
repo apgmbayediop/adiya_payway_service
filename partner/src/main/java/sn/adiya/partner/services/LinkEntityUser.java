@@ -142,7 +142,7 @@ public class LinkEntityUser {
 			//	Object[] dt = {Long.parseLong(entityId),Long.parseLong(userId)};
 			List<PartnerUtilisateur> lPartUser = session.executeNamedQueryList(PartnerUtilisateur.class, "findDuplicatedEntiteUtilisateur", param, data);
 			if(!lPartUser.isEmpty() && apgLink.getAction() != null && !apgLink.getAction().equals("unlinked")) {
-				if(!us.getPartner().getCode().equals(BEConstantes.CODE_CFP) && !us.getGroupeUtilisateur().getIdGroupeUtilisateur().equals(BEConstantes.GROUPE_SUPER_ADMIN_SD) && !us.getGroupeUtilisateur().getIdGroupeUtilisateur().equals(BEConstantes.GROUPE_CONTROLEUR_DSD))
+				if(!us.getGroupeUtilisateur().getIdGroupeUtilisateur().equals(BEConstantes.GROUPE_SUPER_ADMIN_SD) && !us.getGroupeUtilisateur().getIdGroupeUtilisateur().equals(BEConstantes.GROUPE_CONTROLEUR_DSD))
 					return Response.ok().entity(new AbstractResponse("1", "Entite already linked : DUPLICATA"))
 							.header(BEConstantes.AccessControlAllowOrigin,"*")
 							.header(BEConstantes.AccessControlAllowMethods, BEConstantes.AccessControlAllowMethodsVALUE)    
